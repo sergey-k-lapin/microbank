@@ -3,6 +3,7 @@ namespace App\Normalizer\Api;
 
 
 use App\Entity\Account;
+use App\Entity\DepositAccount;
 use App\Normalizer\AbstractNormalizer;
 use JMS\Serializer\Context;
 use JMS\Serializer\JsonSerializationVisitor;
@@ -16,7 +17,7 @@ class ListOfAccountsByPersonNormalizer extends AbstractNormalizer {
 
     public function serialize(
         JsonSerializationVisitor $visitor,
-        Account $account,
+        DepositAccount $account,
         array $type,
         Context $context
     ): array {
@@ -24,6 +25,7 @@ class ListOfAccountsByPersonNormalizer extends AbstractNormalizer {
             'id' => $account->getId(),
             'identifier' => $account->getIdentifier(),
             'amount' => $account->getAmount(),
+            'baseRate' => $account->getBaseRate(),
         ], $type);
     }
 
