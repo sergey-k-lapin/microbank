@@ -4,9 +4,14 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\AccountRepository;
+use App\Entity\DepositAccount;
+//use Doctrine\ORM\Mapping\MappedSuperclass;
 
-
+#[ORM\MappedSuperclass]
 #[ORM\Entity(repositoryClass: AccountRepository::class)]
+#[ORM\InheritanceType('JOINED')]
+#[ORM\DiscriminatorColumn(name: 'discr', type: 'string')]
+#[ORM\DiscriminatorMap(['account' => Account::class, 'depositaccount' => DepositAccount::class])]
 class Account
 {
     #[ORM\Id]

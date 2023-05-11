@@ -21,7 +21,7 @@ class Person
     private ?string $family_name = null;
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $additional_name = null;
-    #[ORM\OneToMany(mappedBy: 'person', targetEntity: Account::class)]
+    #[ORM\OneToMany(mappedBy: 'person', targetEntity: DepositAccount::class)]
     #[ORM\JoinColumn(name: "person_id", referencedColumnName: "id")]
     private Collection $accounts;
     public function __construct()
@@ -66,6 +66,7 @@ class Person
     {
         return $this->accounts;
     }
+
     public function addAccount(Account $account) : self
     {
         if (!$this->accounts->contains($account)) {
