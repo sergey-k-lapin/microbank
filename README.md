@@ -16,3 +16,7 @@ Get all deposit accounts for a person
 ```
 curl --location 'http://microbank/api/accounts/1'
 ```
+API documentation
+```
+http://microbank/api/doc
+```
