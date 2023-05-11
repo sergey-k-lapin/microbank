@@ -1,5 +1,5 @@
 # Bank REST API
-Database RE-Diagram
+Database ER-Diagram
 ![Screenshot](erd.png)
 
 Fake load Command example
